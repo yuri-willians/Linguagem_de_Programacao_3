@@ -4,7 +4,7 @@ int main () {
 
 	int a, b;
 
-	printf("Hello World!");
+	printf("World!");
 	printf("Insira o primeiro valor: ")
 	scanf("%d", a);
 	printf("Insira o segundo valor: ")
