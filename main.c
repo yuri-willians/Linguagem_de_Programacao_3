@@ -1,7 +1,14 @@
 #include <stdio.h>
 
 int main () {
-	print("Hello World!");
+
+	int a, b;
+
+	printf("Hello World!");
+	printf("Insira o primeiro valor: ")
+	scanf("%d", a);
+	printf("Insira o segundo valor: ")
+	scanf("%d", b);
 	return 0;
 }
 
