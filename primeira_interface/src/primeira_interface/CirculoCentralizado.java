@@ -26,8 +26,15 @@ public class CirculoCentralizado extends Application {
         circle.centerXProperty().bind(pane.widthProperty().divide(2));
         circle.centerYProperty().bind(pane.heightProperty().divide(2));
         circle.setRadius(50);
+
+        //Essas duas linhas poderiam ser subistituídas por:
         circle.setStroke(Color.BLACK);
         circle.setFill(Color.WHITE);
+        /*
+        circle.setStyle("-fx-stroke: black; -fx-fill: red;");
+         */
+        //JaxaFX CSS
+
         pane.getChildren().add(circle);
 
         Scene scene = new Scene(pane, 200, 200);
