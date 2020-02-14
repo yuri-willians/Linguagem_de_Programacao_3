@@ -15,24 +15,16 @@ import javafx.stage.Stage;
  *
  * @author Yuri
  */
-public class Circle extends Application {
+public class Circle extends Clock {
 
-    @Override
-    public void start(Stage stage) {
+    static public void makeCircle(Stage stage, Scene scene, Pane pane) {
         javafx.scene.shape.Circle circle = new javafx.scene.shape.Circle();
-        circle.setCenterX(100);
-        circle.setCenterY(100);
-        circle.setRadius(50);
+        circle.setCenterX(scene.getWidth() / 2);
+        circle.setCenterY(scene.getHeight() / 2);
+        circle.setRadius(200);
         circle.setStroke(Color.BLACK);
         circle.setFill(Color.WHITE);
         
-        Pane pane = new Pane();
         pane.getChildren().add(circle);
-
-        Scene scene = new Scene(pane, 200, 200);
-        stage.setTitle("Exibindo um Círculo");
-        stage.setScene(scene);
-        stage.show();
-
     }
 }
