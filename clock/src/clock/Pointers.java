@@ -7,6 +7,7 @@ package clock;
 
 import javafx.scene.Scene;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Line;
 import javafx.stage.Stage;
 
@@ -22,6 +23,7 @@ public class Pointers {
         hour.setStartY(pane.getHeight() / 2);
         hour.setEndX(pane.getWidth() / 2 + 120);
         hour.setEndY(pane.getHeight() / 2 + 30);
+        hour.setStroke(Color.RED);
         pane.getChildren().add(hour);
 
         Line minute = new Line();
@@ -29,6 +31,7 @@ public class Pointers {
         minute.setStartY(pane.getHeight() / 2);
         minute.setEndX(pane.getWidth() / 2 + 120);
         minute.setEndY(pane.getHeight() / 2 + 60);
+        minute.setStroke(Color.BLUE);
         pane.getChildren().add(minute);
 
         Line second = new Line();
@@ -36,6 +39,7 @@ public class Pointers {
         second.setStartY(pane.getHeight() / 2);
         second.setEndX(pane.getWidth() / 2 + 120);
         second.setEndY(pane.getHeight() / 2 + 120);
+        second.setStroke(Color.GREEN);
         pane.getChildren().add(second);
 
     }
