@@ -35,7 +35,7 @@ public class Pointers {
         hour.setStartY(pane.getHeight() / 2);
         hour.setEndX(pane.getWidth() / 2);
         hour.setEndY(pane.getHeight() / 2 - 80);
-        hour.getTransforms().add(new Rotate((hourInt * 30 + (minuteInt / 60) * 30), pane.getWidth() / 2, pane.getWidth() / 2));
+        hour.getTransforms().add(new Rotate(((hourInt * 30) + ((minuteInt / 2))), pane.getWidth() / 2, pane.getWidth() / 2));
         hour.setStroke(Color.RED);
         pane.getChildren().add(hour);
 
