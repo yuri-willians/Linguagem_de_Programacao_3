@@ -38,20 +38,40 @@ public class Texts extends Clock {
         Text t_8 = new Text(scene.getWidth() / 2 - 175, scene.getHeight() / 2 + 5, "8");
         t_8.getTransforms().add(new Rotate(-30, scene.getWidth() / 2, scene.getHeight() / 2));
         t_8.getTransforms().add(new Rotate(30, t_8.getX(), t_8.getY()));
+        pane.getChildren().add(t_8);
 
         Text t_7 = new Text(scene.getWidth() / 2 - 175, scene.getHeight() / 2 + 5, "7");
         t_7.getTransforms().add(new Rotate(-60, scene.getWidth() / 2, scene.getHeight() / 2));
         t_7.getTransforms().add(new Rotate(60, t_7.getX(), t_7.getY()));
+        pane.getChildren().add(t_7);
 
         Text t_6 = new Text((scene.getWidth() / 2) - 5, scene.getHeight() / 2 + 175, "6");
         pane.getChildren().add(t_6);
 
-        Text t_5 = new Text(scene.getWidth() / 2 - 175, scene.getHeight() / 2 + 5, "5");
+        Text t_5 = new Text(scene.getWidth() / 2 - 5, scene.getHeight() / 2 + 175, "5");
         t_5.getTransforms().add(new Rotate(-30, scene.getWidth() / 2, scene.getHeight() / 2));
         t_5.getTransforms().add(new Rotate(30, t_5.getX(), t_5.getY()));
+        pane.getChildren().add(t_5);
+        
+        Text t_4 = new Text(scene.getWidth()/2 - 5, scene.getHeight()/2 + 175, "4");
+        t_4.getTransforms().add(new Rotate(-60, scene.getWidth() / 2, scene.getHeight() / 2));
+        t_4.getTransforms().add(new Rotate(60, t_4.getX(), t_4.getY()));
+        pane.getChildren().add(t_4);
 
         Text t_3 = new Text(scene.getWidth() / 2 + 165, scene.getHeight() / 2 + 5, "3");
         pane.getChildren().add(t_3);
+        
+        Text t_2 = new Text(scene.getWidth() / 2 + 165, scene.getHeight() / 2 + 5, "2");
+        t_2.getTransforms().add(new Rotate(-30, scene.getWidth() / 2, scene.getHeight() / 2));
+        t_2.getTransforms().add(new Rotate(30, t_2.getX(), t_2.getY()));
+        pane.getChildren().add(t_2);
+        
+        Text t_1 = new Text(scene.getWidth() / 2 + 165, scene.getHeight() / 2 + 5, "1");
+        t_1.getTransforms().add(new Rotate(-60, scene.getWidth() / 2, scene.getHeight() / 2));
+        t_1.getTransforms().add(new Rotate(60, t_1.getX(), t_1.getY()));
+        pane.getChildren().add(t_1);
+        
+        
     }
 
 }
