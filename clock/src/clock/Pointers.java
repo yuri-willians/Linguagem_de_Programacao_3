@@ -35,7 +35,7 @@ public class Pointers {
         hour.setStartY(pane.getHeight() / 2);
         hour.setEndX(pane.getWidth() / 2);
         hour.setEndY(pane.getHeight() / 2 - 80);
-        hour.getTransforms().add(new Rotate(((hourInt * 30) + ((minuteInt / 2))), pane.getWidth() / 2, pane.getWidth() / 2));
+        hour.getTransforms().add(new Rotate(((hourInt * 30) + ((minuteInt / 2))), pane.getWidth() / 2, pane.getHeight() / 2));
         hour.setStroke(Color.RED);
         pane.getChildren().add(hour);
 
@@ -44,7 +44,7 @@ public class Pointers {
         minute.setStartY(pane.getHeight() / 2);
         minute.setEndX(pane.getWidth() / 2);
         minute.setEndY(pane.getHeight() / 2 - 120);
-        minute.getTransforms().add(new Rotate(minuteInt * 6, pane.getWidth() / 2, pane.getWidth() / 2));
+        minute.getTransforms().add(new Rotate(minuteInt * 6, pane.getWidth() / 2, pane.getHeight() / 2));
         minute.setStroke(Color.BLUE);
         pane.getChildren().add(minute);
 
@@ -53,7 +53,7 @@ public class Pointers {
         second.setStartY(pane.getHeight() / 2);
         second.setEndX(pane.getWidth() / 2);
         second.setEndY(pane.getHeight() / 2 - 180);
-        second.getTransforms().add(new Rotate(secondInt * 6, pane.getWidth() / 2, pane.getWidth() / 2));
+        second.getTransforms().add(new Rotate(secondInt * 6, pane.getWidth() / 2, pane.getHeight() / 2));
         second.setStroke(Color.GREEN);
         pane.getChildren().add(second);
 
