@@ -5,6 +5,7 @@
  */
 package cube_control;
 
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.transform.Rotate;
@@ -23,13 +24,13 @@ public class Controls {
             rec.setTranslateX(rec.getTranslateX() - 5);
         }
         if (rotateVel > 0) {
-            rec.getTransforms().add(new Rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+            rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
             rotateVel -= 1;
         } else if (rotateVel > -20) {
-            rec.getTransforms().add(new Rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+            rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
             rotateVel -= 0.1;
         } else {
-            rec.getTransforms().add(new Rotate(-20, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+            rotate(-20, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
         }
         return rotateVel;
     }
@@ -42,13 +43,13 @@ public class Controls {
             rec.setTranslateX(rec.getTranslateX() + 5);
         }
         if (rotateVel < 0) {
-            rec.getTransforms().add(new Rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+            rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
             rotateVel += 1;
         } else if (rotateVel < 20) {
-            rec.getTransforms().add(new Rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+            rotate(rotateVel, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
             rotateVel += 0.1;
         } else {
-            rec.getTransforms().add(new Rotate(20, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+            rotate(20, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
         }
         return rotateVel;
     }
@@ -63,19 +64,17 @@ public class Controls {
 
         double angle = getAngle(rec);
 
-        System.out.println(angle);
-
         if (rotateVel != 0) {
             if ((angle < 5)
                     || (angle > 85 && angle < 95)
                     || (angle > 175 && angle < 185)) {
-                rec.getTransforms().add(new Rotate(5, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+                rotate(5, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
                 rotateVel = 0;
             } else {
                 if (Math.signum(angle) == 1.0) {
-                    rec.getTransforms().add(new Rotate(1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+                    rotate(1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
                 } else {
-                    rec.getTransforms().add(new Rotate(-1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+                    rotate(-1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
                 }
             }
         }
@@ -97,16 +96,30 @@ public class Controls {
             if ((angle < 5)
                     || (angle > 85 && angle < 95)
                     || (angle > 175 && angle < 185)) {
-                rec.getTransforms().add(new Rotate(5, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+                rotate(5, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
                 rotateVel = 0;
             } else {
                 if (Math.signum(angle) == 1.0) {
-                    rec.getTransforms().add(new Rotate(1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+                    rotate(1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
                 } else {
-                    rec.getTransforms().add(new Rotate(-1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2));
+                    rotate(-1, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
                 }
             }
         }
+
+        return rotateVel;
+    }
+
+    static float pause(Rectangle rec, Scene scene, float rotateVel) {
+        rotateVel = 0;
+
+        double angle = getAngle(rec);
+
+        if (angle > 5) {
+            rotate(5, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
+        }
+
+        rotate(-angle, rec.getX() + rec.getWidth() / 2, rec.getY() + rec.getHeight() / 2, rec);
 
         return rotateVel;
     }
@@ -123,4 +136,11 @@ public class Controls {
 
         return angle;
     }
+
+    public static void rotate(double angle, double x, double y, Rectangle rec) {
+        Platform.runLater(() -> {
+            rec.getTransforms().add(new Rotate(angle, x, y));
+        });
+    }
+
 }

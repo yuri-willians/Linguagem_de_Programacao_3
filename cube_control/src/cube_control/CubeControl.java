@@ -6,6 +6,7 @@
 package cube_control;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.input.KeyCode;
 import static javafx.scene.input.KeyCode.A;
@@ -40,6 +41,7 @@ public class CubeControl extends Application implements Runnable {
         Thread t = new Thread(this);
         t.setDaemon(true);
         t.start();
+
     }
 
     /**
@@ -58,7 +60,6 @@ public class CubeControl extends Application implements Runnable {
             } catch (InterruptedException e) {
                 e.getMessage();
             }
-
             doMoviment(atualKey);
         }
     }
@@ -84,6 +85,8 @@ public class CubeControl extends Application implements Runnable {
             case RIGHT:
                 rotateVel = Controls.toRight(rec, scene, rotateVel);
                 break;
+            case SPACE:
+                rotateVel = Controls.pause(rec, scene, rotateVel);
             default:
                 break;
         }
