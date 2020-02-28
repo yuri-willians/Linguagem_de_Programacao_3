@@ -18,7 +18,7 @@ import javafx.stage.Stage;
  *
  * @author Yuri
  */
-public class Cube_control extends Application implements Runnable {
+public class CubeControl extends Application implements Runnable {
 
     Pane pane = new Pane();
     Rectangle rec = drawCube.getCube();
